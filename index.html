@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="id"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#172b4d"><meta name="description" content="Catat uang masuk dan uang keluar dengan mudah.">
+<title>Uangku</title><link rel="icon" href="./icons/icon.svg" type="image/svg+xml"><link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./style.css">
+</head><body><main class="app-shell">
+<header class="topbar"><div class="brand-mark" aria-hidden="true">U</div><div><p class="eyebrow">KEUANGAN PRIBADI</p><h1>Uangku</h1></div><span class="offline-indicator" id="connection-status">● Offline siap</span></header>
+<section class="balance-card"><p>Saldo saat ini</p><h2 id="current-balance">Rp0</h2><span class="balance-caption">Uangku, tercatat dengan rapi.</span></section>
+<section class="summary-grid" aria-label="Ringkasan bulan ini">
+<article class="summary-card income-card"><span class="summary-icon">↙</span><p>Uang masuk bulan ini</p><strong id="month-income">Rp0</strong></article>
+<article class="summary-card expense-card"><span class="summary-icon">↗</span><p>Uang keluar bulan ini</p><strong id="month-expense">Rp0</strong></article></section>
+<section class="actions"><button class="action-button income-button" id="add-income" type="button"><span>＋</span><span>UANG MASUK</span></button><button class="action-button expense-button" id="add-expense" type="button"><span>－</span><span>UANG KELUAR</span></button></section>
+<section class="transactions-section"><div class="section-heading"><div><p class="eyebrow">CATATAN ANDA</p><h2>Transaksi terbaru</h2></div><span id="transaction-count" class="count-label">0 transaksi</span></div>
+<div id="transaction-list" class="transaction-list"><div class="empty-state"><span>📝</span><h3>Belum ada catatan</h3><p>Tekan UANG MASUK atau UANG KELUAR untuk mulai mencatat.</p></div></div></section>
+<footer class="app-footer"><button type="button" class="text-button" id="backup-button">Cadangkan data</button><span>·</span><button type="button" class="text-button" id="restore-button">Pulihkan data</button><input id="restore-input" type="file" accept="application/json,.json" hidden><p>Data tersimpan di perangkat ini.</p></footer>
+</main>
+<dialog id="transaction-dialog" class="transaction-dialog"><form id="transaction-form" novalidate><div class="dialog-heading"><div><p class="eyebrow" id="dialog-eyebrow">TRANSAKSI BARU</p><h2 id="dialog-title">Uang masuk</h2></div><button type="button" class="close-button" id="close-dialog" aria-label="Tutup">×</button></div>
+<label for="amount">Jumlah uang <span>*</span></label><div class="amount-input"><span>Rp</span><input id="amount" name="amount" type="number" inputmode="numeric" min="1" step="1" placeholder="Contoh: 50000" required></div>
+<label for="transaction-date">Tanggal</label><input id="transaction-date" name="date" type="date" required>
+<label for="note">Catatan <small>(boleh dikosongkan)</small></label><input id="note" name="note" type="text" maxlength="100" placeholder="Contoh: Gaji, belanja, dan lainnya">
+<p id="form-error" class="form-error" role="alert"></p><div class="dialog-actions"><button type="button" class="cancel-button" id="cancel-dialog">Batal</button><button type="submit" class="save-button" id="save-button">Simpan</button></div></form></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div><script src="./app.js" defer></script></body></html>
